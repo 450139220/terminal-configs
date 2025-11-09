@@ -1,21 +1,23 @@
 if status is-interactive
-  set -g fish_greeting ""
-  set -gx LSCOLORS "fxfxcxdxbxegedabagacad"
-
+# Environment paths
+# Cargo for rust
+set -gx PATH $HOME/.cargo/bin $PATH
 # Homebrew
 set -gx PATH /opt/homebrew/bin $PATH
-
 # Neovim
 set -gx PATH $HOME/.local/bin $PATH
+function vim
+	nvim $argv
+end
 
 # HTTP / HTTPS Proxy
 set -gx HTTP_PROXY http://127.0.0.1:7890
 set -gx HTTPS_PROXY http://127.0.0.1:7890
 
-function vim
-	nvim $argv
-end
-
+# Styles
+set -g fish_greeting ""
+set -gx LSCOLORS "fxfxcxdxbxegedabagacad"
+# Prompt styles
 function git_status_prompt
     # 只在 Git 仓库中显示
     set git_dir (git rev-parse --git-dir ^/dev/null 2>/dev/null)
@@ -34,7 +36,6 @@ function git_status_prompt
         echo "($branch$dirty)"
     end
 end
-
 function fish_prompt
     # 自定义用户名和主机名
     set my_user "cham"
@@ -70,6 +71,8 @@ function fish_prompt
     echo -n "\$ "
 end
 
-# 自动采取灰色提示
+# Tab to accept gray completion suggestion
 bind \t accept-autosuggestion
+
 end
+
