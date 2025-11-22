@@ -3,6 +3,7 @@ return {
   config = function()
     local formatter = require("formatter")
 
+    local util = require("formatter.util")
     local prettier = function()
       return {
         exe = "prettier",
@@ -21,16 +22,35 @@ return {
       }
     end
 
+    local prettier_vue = function()
+      return {
+        exe = "prettier",
+        args = {
+          "--stdin-filepath",
+          util.escape_path(util.get_current_buffer_file_path()),
+          vim.api.nvim_buf_get_name(0),
+          "--tab-width",
+          -- Modify here to change the indent width
+          "2",
+          "--use-tabs",
+          "false",
+          "--bracket-same-line",
+          "true",
+        },
+        stdin = true,
+      }
+    end
     formatter.setup({
       filetype = {
         javascript = { prettier },
         javascriptreact = { prettier },
         typescript = { prettier },
         typescriptreact = { prettier },
-        vue = { prettier },
         html = { prettier },
         css = { prettier },
         json = { prettier },
+        -- vue
+        vue = { prettier_vue },
         -- not for work
         rust = {
           function()
@@ -71,6 +91,7 @@ return {
         "*.html",
         "*.css",
         "*.json",
+        "*.vue",
         -- not for work
         "*.rs",
         "*.lua",

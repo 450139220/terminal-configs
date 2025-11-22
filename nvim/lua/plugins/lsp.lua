@@ -36,12 +36,30 @@ return {
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-      -- local on_attach = function(_, bufnr)
-      --   local opts = { buffer = bufnr, desc = "Lspsaga Hover" }
-      --   vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
-      -- end
       vim.lsp.enable("lua_ls")
       vim.lsp.enable("jsonls")
+      -- vue
+      local vue_language_server_path = vim.fn.expand("$MASON/packages")
+        .. "/vue-language-server"
+        .. "/node_modules/@vue/language-server"
+      vim.lsp.config("vue_ls", {
+        cmd = { vue_language_server_path, "--stdio" },
+        filetypes = { "vue" },
+        init_options = { vue = { hybridMode = true } },
+      })
+      vim.lsp.enable("vue_ls")
+      -- vim.lsp.config("ts_ls", {
+      --   init_options = {
+      --     plugins = {
+      --       {
+      --         name = "@vue/typescript-plugin",
+      --         location = vue_language_server_path,
+      --         languages = { "vue" },
+      --       },
+      --     },
+      --   },
+      --   filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+      -- })
       vim.lsp.enable("ts_ls")
       vim.lsp.enable("html")
       vim.lsp.enable("cssls")
