@@ -75,4 +75,3 @@ end
 bind \t accept-autosuggestion
 
 end
-
