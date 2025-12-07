@@ -17,6 +17,8 @@ return {
           "false",
           "--bracket-same-line",
           "true",
+          "--print-width",
+          "100",
         },
         stdin = true,
       }
