@@ -20,3 +20,5 @@ vim.termguicolors = true
 
 vim.cursorline = true
 vim.laststatus = 3
+
+vim.swapfile = false
