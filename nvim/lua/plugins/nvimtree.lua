@@ -61,6 +61,7 @@ return {
                     show_buffer_close_icons = true,
                     show_close_icon = true,
                     separator_style = "thin",
+                    buffer_close_icon = "󰅖",
                 },
             })
             vim.keymap.set("n", "<Tab>", "<cmd>BufferLineCycleNext<CR>", { desc = "next buffer" })
