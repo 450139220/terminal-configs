@@ -26,6 +26,16 @@ return {
       view = {
         side = "right",
       },
+      renderer = {
+        icons = {
+          glyphs = {
+            folder = {
+              arrow_open = "-",
+              arrow_closed = "+"
+            }
+          }
+        }
+      }
     },
   },
 
