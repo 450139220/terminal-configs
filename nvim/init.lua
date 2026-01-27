@@ -11,7 +11,8 @@ require("config.lazy")
 -- vim.cmd("colorscheme nordic")
 -- vim.cmd("colorscheme github_dark_default")
 -- vim.cmd("colorscheme catppuccin")
-vim.cmd("colorscheme vscode")
+-- vim.cmd("colorscheme vscode")
+vim.cmd("colorscheme terafox")
 
 -- Set comment to italic and be default color
 local function mod_hl(group, attrs)
