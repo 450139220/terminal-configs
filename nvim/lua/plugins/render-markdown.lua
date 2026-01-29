@@ -1,7 +1,13 @@
 return {
-  "MeanderingProgrammer/render-markdown.nvim",
-  dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.nvim" },
-  opts = {
-      heading = {signs={""}}
-  },
+    "MeanderingProgrammer/render-markdown.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.nvim" },
+    opts = {
+        heading = {
+            enabled = false, -- do not render the heading
+            signs = { "" },
+        },
+        code = {
+            sign = false,
+        },
+    },
 }
