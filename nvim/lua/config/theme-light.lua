@@ -28,7 +28,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
         end
 
         local comment_color = "gray"
-        vim.api.nvim_set_hl(0, "Comment", { fg = comment_color, italic = true, bold = false })
+        vim.api.nvim_set_hl(0, "Comment", { fg = comment_color, italic = false, bold = false })
 
         local str_color = "green"
         vim.api.nvim_set_hl(0, "String", { fg = str_color })

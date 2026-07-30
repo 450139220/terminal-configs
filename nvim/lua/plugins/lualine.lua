@@ -9,6 +9,7 @@ return {
                 -- theme = "gruvbox",
                 -- theme = "OceanicNext", -- for nordic
                 component_separators = { left = "|", right = "|" },
+                -- section_separators = { left = "", right = "" },
                 section_separators = { left = "", right = "" },
             },
         })
