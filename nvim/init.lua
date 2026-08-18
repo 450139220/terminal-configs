@@ -8,7 +8,6 @@ require("config.theme-light")
 -- require("config.theme-dark-aurora")
 -- require("config.theme-dark-xcode")
 -- require("config.theme-dark-codesandbox")
--- require("config.theme-light-aurora")
 
 -- Built-ins
 -- vim.cmd("colorscheme slate")
