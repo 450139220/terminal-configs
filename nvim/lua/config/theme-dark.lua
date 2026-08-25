@@ -1,4 +1,5 @@
-local fg_color = "white"
+-- local fg_color = "white"
+local fg_color = "#bbbbbb"
 local bg_color = "black"
 
 vim.api.nvim_create_autocmd("ColorScheme", {
