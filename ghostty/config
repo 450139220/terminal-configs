@@ -29,7 +29,6 @@ shell-integration = fish
 
 macos-icon-frame = chrome
 
-# This adjusts 15-inch macbook air laptop.
 window-width = 180
 window-height = 50
 window-save-state = always
