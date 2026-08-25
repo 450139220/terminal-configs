@@ -1,0 +1,80 @@
+return {
+    -- mini
+    {
+        "nvim-mini/mini.nvim",
+        version = false,
+        lazy = true,
+        config = function()
+            require("mini.icons").setup({})
+            require("mini.icons").mock_nvim_web_devicons()
+        end,
+    },
+
+    -- nvim tree
+    {
+        "nvim-tree/nvim-tree.lua",
+        dependencies = {
+            -- "nvim-tree/nvim-web-devicons",
+            "nvim-mini/mini.nvim",
+            "christoomey/vim-tmux-navigator",
+        },
+        cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+        keys = {
+            { "<leader>f", "<cmd>NvimTreeToggle<CR>", desc = "toggle file tree" },
+        },
+        opts = {
+            view = {
+                side = "right",
+            },
+            filters = {
+                git_ignored = false,
+            },
+            renderer = {
+                icons = {
+                    glyphs = {
+                        folder = {
+                            arrow_closed = "+",
+                            arrow_open = "-",
+                        },
+                    },
+                    -- web_devicons = {
+                    --     file = {
+                    --         enable = false,
+                    --         color = false,
+                    --     },
+                    -- },
+                },
+            },
+        },
+    },
+
+    -- buffer line
+    {
+        "akinsho/bufferline.nvim",
+        version = "*",
+        dependencies = {
+            "nvim-tree/nvim-web-devicons",
+            "nvim-mini/mini.nvim",
+        },
+        event = "BufAdd",
+        config = function()
+            require("bufferline").setup({
+                options = {
+                    mode = "buffers",
+                    diagnostics = "nvim_lsp",
+                    diagnostics_indicator = function(count, level)
+                        -- local icon = level:match("error") and "err" or "war"
+                        -- return "" .. icon .. count
+                        return "" .. count
+                    end,
+                    show_buffer_close_icons = true,
+                    show_close_icon = true,
+                    separator_style = "thin",
+                    buffer_close_icon = "󰅖",
+                },
+            })
+            vim.keymap.set("n", "<Tab>", "<cmd>BufferLineCycleNext<CR>", { desc = "next buffer" })
+            vim.keymap.set("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>", { desc = "prev buffer" })
+        end,
+    },
+}
